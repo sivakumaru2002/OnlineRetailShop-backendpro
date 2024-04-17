@@ -1,14 +1,18 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using OnlineRetailShop.Repository.Entity;
 using OnlineRetailShop.Repository.Migrations;
 using OnlineRetailShop.Service.Implementation;
 using OnlineRetailShop.Service.Interface;
+using OnlineRetailshop.Filter;
 
 namespace OnlineRetailShop.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
+    [ServiceFilter(typeof(AuthorizationFilter))]
     public class ProductController : ControllerBase
     {
         private IProductService _ProductService;
@@ -17,6 +21,7 @@ namespace OnlineRetailShop.Controllers
         }
 
         [HttpGet]
+        
         [Route ("GetAllProduct")]
         public async Task<IActionResult> GetAllProduct()
         {

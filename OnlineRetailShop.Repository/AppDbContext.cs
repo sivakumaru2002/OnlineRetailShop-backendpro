@@ -15,5 +15,6 @@ namespace OnlineRetailShop.Repository
         public DbSet<Product> Product { get; set; }
         public DbSet<Order> Order {  get; set; }
         public DbSet<Cart> Cart { get; set; }
+        public DbSet<UserModel> UserModel { get; set; }
     }
 }

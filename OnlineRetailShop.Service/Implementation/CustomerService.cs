@@ -15,14 +15,13 @@ namespace OnlineRetailShop.Service.Implementation
             _CustomerInterface = customerInterface;
         }
 
-        public Task<List<Customer>> GetAllCustomer()
+        public async Task<List<Customer>> GetAllCustomer()
         {
-            var customer = _CustomerInterface.GetAllCustomer();
-            return customer;
+            return await _CustomerInterface.GetAllCustomer();
         }
-        public Task<Customer> GetCustomerById(Guid customerId)
+        public async Task<Customer> GetCustomerById(Guid customerId)
         {
-            var customer= _CustomerInterface.GetCustomerById(customerId);
+            var customer= await _CustomerInterface.GetCustomerById(customerId);
             return customer; 
         }
 

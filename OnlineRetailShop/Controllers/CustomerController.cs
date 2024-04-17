@@ -1,12 +1,17 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using OnlineRetailshop.Filter;
 using OnlineRetailShop.Repository.Entity;
 using OnlineRetailShop.Service.Interface;
 
 
+
 namespace OnlineRetailShop.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
+    [ServiceFilter(typeof(AuthorizationFilter))]
     public class CustomerController : ControllerBase
     {
         private ICustomerService _CustomerService;
