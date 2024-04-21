@@ -21,7 +21,6 @@ namespace OnlineRetailShop.Controllers
         }
 
         [HttpGet]
-        
         [Route ("GetAllProduct")]
         public async Task<IActionResult> GetAllProduct()
         {

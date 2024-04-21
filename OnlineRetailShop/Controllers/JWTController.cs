@@ -54,7 +54,7 @@ namespace OnlineRetailShop.Controllers
             var token = new JwtSecurityToken(_config["JwtSettings:Issuer"],
                 _config["JwtSettings:Issuer"],
                 claims,
-                expires: DateTime.Now.AddMinutes(120),
+                expires: DateTime.Now.AddDays(12),
                 signingCredentials: credentials);
 
             return new JwtSecurityTokenHandler().WriteToken(token);

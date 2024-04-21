@@ -14,11 +14,11 @@ namespace OnlineRetailshop.Filter
     public class AuthorizationFilter : Attribute, IAuthorizationFilter
     {
         public readonly IUserCheckService userCheck;
-        public readonly IAuthenticationRespository authenticationRespository;
-        public AuthorizationFilter(IUserCheckService userCheck, IAuthenticationRespository authenticationRespository)
+
+        public AuthorizationFilter(IUserCheckService userCheck)
         {
             this.userCheck = userCheck;
-            this.authenticationRespository = authenticationRespository;
+
         }
         public async void OnAuthorization(AuthorizationFilterContext context)
         {

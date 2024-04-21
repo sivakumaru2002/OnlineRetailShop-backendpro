@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using OnlineRetailshop.Filter;
+using OnlineRetailShop.MiddleWare;
 using OnlineRetailShop.Repository;
 using OnlineRetailShop.Repository.Implementation;
 using OnlineRetailShop.Repository.Interface;
@@ -87,6 +88,7 @@ builder.Services.AddTransient<ICartService, CartService>();
 builder.Services.AddTransient<IUserCheckService, UserCheckService>();
 builder.Services.AddTransient<IAuthenticationServices, AuthenticationServices>();
 builder.Services.AddScoped<AuthorizationFilter>();
+builder.Services.AddTransient<AuthorizationMiddleware>();
 
 var app = builder.Build();
 
@@ -100,8 +102,14 @@ app.UseCors("AllowAnyOriginPolicy");
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
-
-
+app.Use(async (HttpContext context, RequestDelegate next) =>
+{
+    await next(context);
+});
+app.useAuthorizationMiddleWare();
+//UserID
+//61A6CB32-DCC4-464C-BBA9-8E85F0D10113
+//Token
+//eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiU3JpbmlkaGkiLCJzdWIiOiJwYXNzd29yZCIsIlVzZXJJZCI6IjYxYTZjYjMyLWRjYzQtNDY0Yy1iYmE5LThlODVmMGQxMDExMyIsImp0aSI6IjIyNDQ3YzZlLWFiZTktNGM0ZS1iNGY5LThjNDRiZWExZmVkMiIsImV4cCI6MTcxNDcyNzA5NywiaXNzIjoiaHR0cHM6Ly9Qcm9JbmRpYS5jb20iLCJhdWQiOiJodHRwczovL1Byb0luZGlhLmNvbSJ9.BO0QKe8DpVla2MuaDB4fj8h2AyI1xbmQU2mKSCqReHY
 app.MapControllers();
-
 app.Run();
