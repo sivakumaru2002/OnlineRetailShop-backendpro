@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using OnlineRetailShop.Repository.Entity;
 using OnlineRetailShop.Service.Interface;
+using ViewModels;
 
 namespace OnlineRetailShop.Controllers
 {

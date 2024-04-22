@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\OnlineRetailShop.Repository\OnlineRetailShop.Repository.csproj" />
+    <ProjectReference Include="..\ViewModels\ViewModels.csproj" />
   </ItemGroup>
 
 </Project>

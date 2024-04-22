@@ -6,6 +6,7 @@ using OnlineRetailShop.Repository.Migrations;
 using OnlineRetailShop.Service.Implementation;
 using OnlineRetailShop.Service.Interface;
 using OnlineRetailshop.Filter;
+using ViewModels;
 
 namespace OnlineRetailShop.Controllers
 {

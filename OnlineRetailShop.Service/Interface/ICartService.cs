@@ -1,6 +1,7 @@
 ﻿
 
 using OnlineRetailShop.Repository.Entity;
+using ViewModels;
 
 namespace OnlineRetailShop.Service.Interface
 {
